@@ -1,0 +1,352 @@
+.fightarea {
+  display: flex;
+  gap: 20px;
+}
+
+#char {
+  width: -webkit-fill-available;
+  #monster {
+    flex: 1;
+  }
+}
+
+.lifebar {
+  height: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  .bar {
+    height: inherit;
+    background-color: red;
+    border-radius: 5px;
+  }
+}
+
+.log {
+  border: 1px dotted #999;
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.battle-field {
+  background-color: black;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.char-area {
+  height: 100%;
+  width: 100%;
+  background-color: aqua;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.hero {
+  height: 75px;
+  width: 85px;
+  padding: 0 5px;
+  background-image: url("../Knight_/1Stop\ 1.fw.png");
+  transition: ease-in-out 2s;
+  position: relative;
+  background-repeat: no-repeat;
+}
+.monster {
+  height: 45px;
+  width: 46px;
+  padding: 0 5px;
+  background-image: url("../Knight_/minotauro.png");
+  transition: ease-in-out 2s;
+  position: relative;
+  background-repeat: no-repeat;
+  animation: monsterStop 5s infinite;
+}
+
+@keyframes heroAttack {
+  0% {
+    background-image: url("../Knight_/1Run+Attack1.fw.png");
+    opacity: 1;
+    transform: scaleX(1);
+    left: 0;
+    z-index: 50;
+  }
+  5% {
+    opacity: 1;
+  }
+  10% {
+    background-image: url("../Knight_/2Run+Attack2.fw.png");
+    opacity: 1;
+  }
+  15% {
+    opacity: 1;
+  }
+  20% {
+    background-image: url("../Knight_/3Run+Attack3.fw.png");
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    background-image: url("../Knight_/4Run+Attack4.fw.png");
+    opacity: 1;
+  }
+  35% {
+    opacity: 1;
+  }
+  40% {
+    background-image: url("../Knight_/5Run+Attack5.fw.png");
+    opacity: 1;
+    left: 44vw;
+    transform: scaleX(1);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scaleX(-1);
+  }
+  50% {
+    background-image: url("../Knight_/1Run1.fw.png");
+    opacity: 1;
+    transform: scaleX(-1);
+  }
+  55% {
+    opacity: 1;
+  }
+  60% {
+    background-image: url("../Knight_/2Run2.fw.png");
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  70% {
+    background-image: url("../Knight_/3Run3.fw.png");
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  80% {
+    background-image: url("../Knight_/4Run4.fw.png");
+    opacity: 1;
+    transform: scaleX(-1);
+  }
+  85% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    background-image: url("../Knight_/1Stop\ 1.fw.png");
+    opacity: 1;
+    left: 0;
+    z-index: 0;
+  }
+}
+
+@keyframes heroDefense {
+  0% {
+    background-image: url("../Knight_/1Stop\ 1.fw.png");
+    opacity: 1;
+  }
+  10% {
+    background-image: url("../Knight_/1Defend1.fw.png");
+  }
+  20% {
+    background-image: url("../Knight_/2Defend2.fw.png");
+  }
+  30% {
+    background-image: url("../Knight_/3Defend3.fw.png");
+  }
+  40% {
+    background-image: url("../Knight_/4Defend4.fw.png");
+  }
+  50% {
+    background-image: url("../Knight_/5Defend5.fw.png");
+  }
+  60% {
+    background-image: url("../Knight_/4Defend4.fw.png");
+  }
+  70% {
+    background-image: url("../Knight_/3Defend3.fw.png");
+  }
+  80% {
+    background-image: url("../Knight_/2Defend2.fw.png");
+  }
+  90% {
+    background-image: url("../Knight_/1Defend1.fw.png");
+    opacity: 1;
+  }
+  95% {
+    opacity: 0;
+  }
+  100% {
+    background-image: url("../Knight_/1Stop\ 1.fw.png");
+    opacity: 1;
+  }
+}
+
+@keyframes heroHurt {
+  0% {
+    background-image: url("../Knight_/1Stop\ 1.fw.png");
+    opacity: 1;
+  }
+
+  25% {
+    background-image: url("../Knight_/1Hurt1.fw.png");
+  }
+  50% {
+    background-image: url("../Knight_/2Hurt2.fw.png");
+  }
+  100% {
+    background-image: url("../Knight_/1Stop\ 1.fw.png");
+  }
+}
+
+@keyframes heroDeath {
+  0% {
+    background-image: url("../Knight_/1Dead1.fw.png");
+    opacity: 1;
+  }
+  20% {
+    background-image: url("../Knight_/1Dead2.fw.png");
+  }
+  40% {
+    background-image: url("../Knight_/1Dead3.fw.png");
+  }
+  60% {
+    background-image: url("../Knight_/1Dead4.fw.png");
+  }
+  80% {
+    background-image: url("../Knight_/1Dead5.fw.png");
+  }
+  100% {
+    background-image: url("../Knight_/1Dead6.fw.png");
+  }
+}
+
+@keyframes monsterStop {
+  0% {
+    background-image: url("../Knight_/minotauro.png");
+  }
+  25% {
+    background-image: url("../Knight_/minotauro1.png");
+  }
+  50% {
+    background-image: url("../Knight_/minotauro.png");
+  }
+  75% {
+    background-image: url("../Knight_/minotauro1.png");
+  }
+  100% {
+    background-image: url("../Knight_/minotauro.png");
+  }
+}
+@keyframes monsterAttack {
+  0% {
+    background-image: url("../Knight_/minotauro.png");
+    right: 0;
+    bottom: 0;
+    opacity: 0.2;
+  }
+  25% {
+    right: 20vw;
+    bottom: 40%;
+    opacity: 0;
+  }
+  40% {
+    right: 44vw;
+    bottom: 0;
+    background-image: url("../Knight_/minotauro.png");
+    opacity: 0.2;
+  }
+  50% {
+    background-image: url("../Knight_/minotauro-attack1.png");
+    opacity: 1;
+  }
+  60% {
+    background-image: url("../Knight_/minotauro-attack2.png");
+  }
+  70% {
+    right: 44vw;
+    bottom: 0;
+    background-image: url("../Knight_/minotauro-attack3.png");
+    opacity: 1;
+  }
+  80% {
+    right: 20vw;
+    bottom: 40%;
+    opacity: 0;
+  }
+  95% {
+    right: 0;
+    bottom: 0;
+    opacity: 0.2;
+  }
+  100% {
+    background-image: url("../Knight_/minotauro.png");
+    opacity: 1;
+  }
+}
+
+@keyframes monsterDefense {
+  0% {
+    background-image: url("../Knight_/minotauro.png");
+    opacity: 1;
+  }
+  50% {
+    background-image: url("../Knight_/minotauro-attack.png");
+  }
+  100% {
+    background-image: url("../Knight_/minotauro.png");
+  }
+}
+
+@keyframes monsterHurt {
+  0% {
+    background-image: url("../Knight_/minotauro.png");
+    opacity: 1;
+  }
+
+  25% {
+    background-image: url("../Knight_/minotauro-damage.png");
+    padding-bottom: 1px;
+  }
+  50% {
+    background-image: url("../Knight_/minotauro-damage.fw.png");
+    padding-bottom: 4px;
+  }
+  75% {
+    background-image: url("../Knight_/minotauro-damage.png");
+    padding-bottom: 1px;
+  }
+  100% {
+    background-image: url("../Knight_/minotauro.png");
+    padding-bottom: 0px;
+  }
+}
+
+@keyframes monsterLose {
+  0% {
+    left: 0%;
+    bottom: 0%;
+    opacity: 0.2;
+  }
+  50% {
+    left: 10%;
+    bottom: 40%;
+    opacity: 0;
+  }
+  100% {
+    left: 15%;
+    bottom: 0%;
+    opacity: 0;
+  }
+}
